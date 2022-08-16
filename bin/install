@@ -1,0 +1,13 @@
+#!/bin/bash
+################################################################
+# install     - Bash script
+# Tangent-S installation
+echo ""
+echo "[ Downloading amrlib ]"
+if [ -d ./amrlib ]
+then
+	mymsg "Tangent-s repository already downloaded."
+else
+  git clone https://github.com/bjascob/amrlib.git
+fi
+
