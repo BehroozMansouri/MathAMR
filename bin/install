@@ -6,8 +6,16 @@ echo ""
 echo "[ Downloading amrlib ]"
 if [ -d ./amrlib ]
 then
-	mymsg "Tangent-s repository already downloaded."
+	mymsg "amr-lib repository already downloaded."
 else
   git clone https://github.com/bjascob/amrlib.git
 fi
 
+echo ""
+echo "[ Downloading amr-utils ]"
+if [ -d ./amr-utils ]
+then
+	mymsg "amr-utils repository already downloaded."
+else
+  git clone https://github.com/ablodge/amr-utils.git
+fi
