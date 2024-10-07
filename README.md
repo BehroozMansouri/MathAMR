@@ -13,7 +13,7 @@ the ARQMath-2 formula retrieval task, where in most cases effectiveness measures
 reranked run matches the best P´@10 for an original run, and exceeds the original runs in nDCG´@10. 
 
 ## Installation
-git clone https://github.com//ablodge/amr-utils
+```git clone https://github.com//ablodge/amr-utils
 pip install penman
 pip install ./amr-utils
-git clone https://github.com/bjascob/amrlib
+git clone https://github.com/bjascob/amrlib'''
