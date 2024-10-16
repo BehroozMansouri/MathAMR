@@ -13,6 +13,7 @@ csv.field_size_limit(sys.maxsize)
 nlp = spacy.load('en_core_web_sm')
 CLEANR = re.compile('<.*?>')
 
+
 def cleanhtml(raw_html):
     cleantext = re.sub(CLEANR, '', raw_html)
     return cleantext
@@ -154,7 +155,7 @@ def main(post_path, latex_dir, qrel_1, qrel_2, result_path):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Process some paths.")
+    parser = argparse.ArgumentParser(description="Detect candidate formulas context.")
 
     parser.add_argument('--post_path', type=str, required=True,
                         help='Path to the Posts XML file.')
