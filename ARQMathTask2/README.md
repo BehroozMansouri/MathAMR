@@ -14,7 +14,7 @@ This will generate the annotated formulas context in ARQMath-1 and -2, saving th
 
 Next we run a similar code for extracting context of formula queries. For this, run the command like:
 ```bash
-python extract_context_task2.py \
+python extract_context_topics_task2.py \
   --xml_topic_path "./Topics_V1.1.xml" \
   --opt_topic_path "./Formula_topics_opt_V2.0.tsv" \
   --result_file "result.tsv"
