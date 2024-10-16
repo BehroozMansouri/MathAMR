@@ -7,6 +7,6 @@ python extract_context_task2.py \
   --latex_dir ".latex_representation_v3/" \
   --qrel_1 "./qrel_task2_2020_visual_id.tsv" \
   --qrel_2 "./qrel_task2_2021_all.tsv" \
-  --result_path "formulas_context.tsv"
+  --result_path "formulas_context.tsv"'''
 
 The command above will save the candidate formulas context as a .TSV file. Next we run a similar code for extracting context of formula queries. For this, run the command:
