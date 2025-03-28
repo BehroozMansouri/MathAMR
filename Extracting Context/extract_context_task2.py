@@ -90,7 +90,10 @@ def get_related_text(qrel_arqmath_1, qrel_arqmath_2, qrel_arqmath_3, latex_tsv_d
     return result
 
 
-def main(post_path, latex_dir, qrel_1, qrel_2, qrel_3, result_path):
+def main(post_path, latex_dir, result_path):
+    qrel_1 = "../ARQMathFiles/qrel_task2_2020_visual_id.tsv"
+    qrel_2 = "../ARQMathFiles/qrel_task2_2021_all.tsv"
+    qrel_3 = "../ARQMathFiles/qrel_task2_2022_official.tsv"
     formula_id_contex_dic = get_related_text(qrel_1, qrel_2, qrel_3, latex_dir, post_path)
     with open(result_path, "w", newline='', encoding="utf-8") as result_file:
         csv_writer = csv.writer(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
@@ -105,15 +108,10 @@ if __name__ == '__main__':
                         help='Path to the Posts XML file.')
     parser.add_argument('--latex_dir', type=str, required=True,
                         help='Directory for LaTeX representation.')
-    parser.add_argument('--qrel_1', type=str, required=True,
-                        help='Path to the ARQMath1 Qrel file.')
-    parser.add_argument('--qrel_2', type=str, required=True,
-                        help='Path to the ARQMath2 Qrel file.')
-    parser.add_argument('--qrel_3', type=str, required=True,
-                        help='Path to the ARQMath2 Qrel file.')
+
     parser.add_argument('--result_path', type=str, required=True,
                         help='Path to save the results.')
 
     args = parser.parse_args()
 
-    main(args.post_path, args.latex_dir, args.qrel_1, args.qrel_2, args.result_path)
+    main(args.post_path, args.latex_dir, args.result_path)

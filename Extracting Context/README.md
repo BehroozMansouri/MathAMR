@@ -1,6 +1,6 @@
 ## Getting Data
 To run the experiments, you need to download the following files from ARQMath Google Drive.
-For ease of use, the smaller files including Topics (.xml files), and  
+For ease of use, the smaller files including Topics (.xml files), OPTs (.tsv files), and QREL (.tsv files) are included in the ARQMathFiles Directory.
 #### Collection Files
 - Posts.V1.3.xml: This contains question and answer posts. [Link](https://drive.google.com/drive/u/0/folders/1YekTVvfmYKZ8I5uiUMbs21G2mKwF9IAm)
 - latex_representation_v3: This contains LaTeX representations of math formulas in the Posts. [Link](https://drive.google.com/drive/u/0/folders/18bHlAWkhIJkLeS9CHvBQQ-BLSn4rrlvE)
@@ -23,9 +23,6 @@ Run the command like:
 python extract_context_task2.py \
   --post_path "./Posts.V1.3.xml" \
   --latex_dir ".latex_representation_v3/" \
-  --qrel_1 "./qrel_task2_2020_visual_id.tsv" \
-  --qrel_2 "./qrel_task2_2021_all.tsv" \
-  --qrel_3 "./qrel_task2_2022_official.tsv" \
   --result_path "formulas_context.tsv"
 ```
 
