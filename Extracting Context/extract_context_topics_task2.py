@@ -1,6 +1,6 @@
 from topic_file_reader_task2 import TopicReader
 from bs4 import BeautifulSoup
-
+from shared_methods import *
 import argparse
 import sys
 import csv
@@ -35,62 +35,6 @@ def read_opt_files(file_path):
     return topic_result
 
 
-def cleanhtml(raw_html):
-    cleantext = re.sub(CLEANR, '', raw_html)
-    return cleantext
-
-
-def get_math_query(text):
-    """
-    replacing formula with eqxIDeqx
-    @param text:
-    @return:
-    """
-    soup = BeautifulSoup(text, 'html.parser')
-    for tag in soup.find_all("span", {'class': 'math-container'}):
-        if 'id' not in tag.attrs:
-            continue
-
-        id_formula = str(tag.attrs['id']).split("_")[1]
-        formula_latex = str(tag.text)
-        formula_latex = formula_latex.strip()
-        if len(formula_latex) > 0 and formula_latex[-1] == ".":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\".')
-        elif len(formula_latex) > 0 and formula_latex[-1] == "?":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\"?')
-        elif len(formula_latex) > 0 and formula_latex[-1] == ":":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\":')
-        elif len(formula_latex) > 0 and formula_latex[-1] == ";":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\";')
-        else:
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\"')
-    return soup.text
-
-
-def get_context_of_formula_sentence(doc, find_text):
-    """
-    This method will return formulas context as the sentence in which formula appeared and sentences before and after it
-    @param doc:
-    @param find_text:
-    @return:
-    """
-    lst = []
-    for i, sentence in enumerate(doc.sents):
-        lst.append(sentence.text)
-    pre_text = ""
-    post_text = ""
-    for i in range(len(lst)):
-        if find_text in lst[i]:
-            if i > 0:
-                pre_index = i-1
-                pre_text = lst[pre_index]
-            if i+1 < len(lst):
-                post_index = i + 1
-                post_text = lst[post_index]
-            return pre_text + " " + sentence.text + " "+ post_text
-    return ""
-
-
 def get_context_text(arqmath_opt_dic, arqmath_topics, result):
     for topic_id in arqmath_topics:
         temp = arqmath_topics[topic_id]
@@ -105,7 +49,7 @@ def get_context_text(arqmath_opt_dic, arqmath_topics, result):
             text = title
         else:
             text = body
-        math_text = get_math_query(text)
+        math_text = get_math(text)
         text_sentences = nlp(math_text)
         id_formula = formula_id.split("_")[1]
         target_formula = 'eqx' + str(id_formula) + 'eqx'
@@ -144,24 +88,25 @@ def get_related_text(xml_topic, opt_topic):
     return result
 
 
-def main(xml_topic_path, opt_topic_path, result_file):
-    formula_id_contex_dic = get_related_text(xml_topic_path, opt_topic_path)
+def main(result_file):
+    file_paths = [("../ARQMathFiles/Topics_V1.1.xml", "../ARQMathFiles/Formula_topics_opt_V2.0.tsv"),
+                  ("../ARQMathFiles/Topics_Task2.2021.V1.1.xml", "../ARQMathFiles/Topics_2021_Formulas_OPT_V1.1.tsv"),
+                  ("../ARQMathFiles/Topics_Task2.2022.V0.1.xml", "../ARQMathFiles/Topics_Formulas_OPT.V0.1.tsv")]
     with open(result_file, "w", newline='', encoding="utf-8") as result_file:
         csv_writer = csv.writer(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
-        for topic_id in formula_id_contex_dic:
-            csv_writer.writerow([str(topic_id), formula_id_contex_dic[topic_id]])
+        for item in file_paths:
+            xml_topic_path = item[0]
+            opt_topic_path = item[1]
+            formula_id_contex_dic = get_related_text(xml_topic_path, opt_topic_path)
+            for topic_id in formula_id_contex_dic:
+                csv_writer.writerow([str(topic_id), formula_id_contex_dic[topic_id]])
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Detect query formulas context.")
-
-    parser.add_argument('--xml_topic_path', type=str, required=True,
-                        help='Path to the XML Topic file.')
-    parser.add_argument('--opt_topic_path', type=str, required=True,
-                        help='Path to the Optimized Topic TSV file.')
     parser.add_argument('--result_file', type=str, required=True,
                         help='File where results will be saved.')
 
     args = parser.parse_args()
 
-    main(args.xml_topic_path, args.opt_topic_path, args.result_file)
+    main(args.result_file)

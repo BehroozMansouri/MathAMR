@@ -1,48 +1,15 @@
+from post_parser_record import PostParserRecord
+from tqdm import tqdm
+from shared_methods import *
+
 import argparse
-import re
 import sys
 import csv
 import os
 import spacy
 
-from bs4 import BeautifulSoup
-from post_parser_record import PostParserRecord
-from tqdm import tqdm
-
 csv.field_size_limit(sys.maxsize)
 nlp = spacy.load('en_core_web_sm')
-CLEANR = re.compile('<.*?>')
-
-
-def cleanhtml(raw_html):
-    cleantext = re.sub(CLEANR, '', raw_html)
-    return cleantext
-
-
-def get_math(text):
-    """
-    All ARQMath formulas are located in math-container tags; this method replaces the formula with the eqxIDeqx
-    @param text: Text with mathematical formulas in LaTeX located in math-container tag
-    @return: Text with formula replaced with ID
-    """
-    soup = BeautifulSoup(text, 'html.parser')
-    for tag in soup.find_all("span", {'class': 'math-container'}):
-        if 'id' not in tag.attrs:
-            continue
-        id_formula = tag.attrs['id']
-        formula_latex = str(tag.text)
-        formula_latex = formula_latex.strip()
-        if len(formula_latex) > 0 and formula_latex[-1] == ".":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\".')
-        elif len(formula_latex) > 0 and formula_latex[-1] == "?":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\"?')
-        elif len(formula_latex) > 0 and formula_latex[-1] == ":":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\":')
-        elif len(formula_latex) > 0 and formula_latex[-1] == ";":
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\";')
-        else:
-            tag.replaceWith('\"eqx' + str(id_formula) + 'eqx\"')
-    return soup.text
 
 
 def read_formula_qrel(qrel_file_path):
@@ -79,30 +46,6 @@ def read_tsv_files(tsv_directory):
                 dic_formula_post_ids[formula_id] = post_id
                 dic_formula_post_type[formula_id] = post_type
     return dic_formula_post_ids, dic_formula_post_type
-
-
-def get_context_of_formula_sentence(doc, input_formula):
-    """
-    This method detect the sentence before and after the sentence in which formula has appeared
-    @param doc: list of sentences
-    @param input_formula: input formula
-    @return: context of formula as a sentence in which formula has appeared along with the sentences before and after it
-    """
-    lst = []
-    for i, sentence in enumerate(doc.sents):
-        lst.append(sentence.text)
-    pre_text = ""
-    post_text = ""
-    for i in range(len(lst)):
-        if input_formula in lst[i]:
-            if i > 0:
-                pre_index = i-1
-                pre_text = lst[pre_index]
-            if i+1 < len(lst):
-                post_index = i + 1
-                post_text = lst[post_index]
-            return (pre_text + " " + sentence.text + " "+ post_text).strip()
-    return ""
 
 
 def get_related_text(qrel_arqmath_1, qrel_arqmath_2, qrel_arqmath_3, latex_tsv_directory, post_file_path):
