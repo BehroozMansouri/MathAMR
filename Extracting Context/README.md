@@ -26,14 +26,18 @@ python extract_context_task2.py \
   --result_path "formulas_context.tsv"
 ```
 
-This will generate the annotated formulas context in ARQMath-1 and -2, saving the candidate formulas context as a .TSV file. 
+This will generate the annotated formulas context in ARQMath-1, -2 and -3, saving the candidate formulas context as formulas_context.tsv file. 
 
 Next we run a similar code for extracting context of formula queries. For this, run the command like:
 ```bash
 python extract_context_topics_task2.py \
-  --xml_topic_path "./Topics_V1.1.xml" \
-  --opt_topic_path "./Formula_topics_opt_V2.0.tsv" \
   --result_file "result.tsv"
 ```
 
 Note that for commands above you need the `topic_file_reader_task2.py`, `post_parser_record.py`, and `Post.py` files.
+
+#### SpaCy
+In case running the SpaCy is raising an error, please use the following command to install the matched version
+```bash
+python -m pip install -U pydantic spacy==3.4.4
+```

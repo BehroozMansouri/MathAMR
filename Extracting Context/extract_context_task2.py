@@ -51,19 +51,19 @@ def read_tsv_files(tsv_directory):
 def get_related_text(qrel_arqmath_1, qrel_arqmath_2, qrel_arqmath_3, latex_tsv_directory, post_file_path):
     result = {}
     lst_formulas = []
-    # Reading the qrel files for arqmath 1 and 2
+    # Reading the QREL files for ARQMath 1, 2, and 3
     lst_formulas.extend(read_formula_qrel(qrel_arqmath_1))
     lst_formulas.extend(read_formula_qrel(qrel_arqmath_2))
     lst_formulas.extend(read_formula_qrel(qrel_arqmath_3))
-    print("read qrels")
 
     # Reading TSV files
+    print("Reading the LaTeX Files")
     dic_formula_post_ids, dic_formula_post_type = read_tsv_files(latex_tsv_directory)
-    print("read TSV")
 
     # Reading post file
+    print("Reading the Post File")
     post_parser = PostParserRecord(post_file_path)
-    print("read post")
+
 
     # Replacing formulas with their ID, in form of eqxIDeqx
     for formula_id in tqdm(lst_formulas):

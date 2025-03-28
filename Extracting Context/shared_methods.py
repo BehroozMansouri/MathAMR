@@ -36,6 +36,8 @@ def get_math(text):
         if 'id' not in tag.attrs:
             continue
         id_formula = tag.attrs['id']
+        if "_" in id_formula:
+            id_formula = id_formula.split("_")[-1]
         formula_latex = str(tag.text)
         formula_latex = formula_latex.strip()
         if len(formula_latex) > 0 and formula_latex[-1] == ".":

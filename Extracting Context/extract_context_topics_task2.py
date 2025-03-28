@@ -90,8 +90,8 @@ def get_related_text(xml_topic, opt_topic):
 
 def main(result_file):
     file_paths = [("../ARQMathFiles/Topics_V1.1.xml", "../ARQMathFiles/Formula_topics_opt_V2.0.tsv"),
-                  ("../ARQMathFiles/Topics_Task2.2021.V1.1.xml", "../ARQMathFiles/Topics_2021_Formulas_OPT_V1.1.tsv"),
-                  ("../ARQMathFiles/Topics_Task2.2022.V0.1.xml", "../ARQMathFiles/Topics_Formulas_OPT.V0.1.tsv")]
+                  ("../ARQMathFiles/Topics_Task2_2021_V1.1.xml", "../ARQMathFiles/Topics_2021_Formulas_OPT_V1.1.tsv"),
+                  ("../ARQMathFiles/Topics_Task2_2022_V0.1.xml", "../ARQMathFiles/Topics_Formulas_OPT.V0.1.tsv")]
     with open(result_file, "w", newline='', encoding="utf-8") as result_file:
         csv_writer = csv.writer(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
         for item in file_paths:
