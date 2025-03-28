@@ -1,21 +1,23 @@
-import argparse
-
 from topic_file_reader_task2 import TopicReader
+from bs4 import BeautifulSoup
+
+import argparse
+import sys
+import csv
+import spacy
 import re
 
 CLEANR = re.compile('<.*?>')
-from bs4 import BeautifulSoup
-import sys
-import csv
-import os
-
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-import spacy
 nlp = spacy.load('en_core_web_sm')
 csv.field_size_limit(sys.maxsize)
 
 
 def read_opt_files(file_path):
+    """
+
+    :param file_path:
+    :return:
+    """
     topic_result = {}
     result_file = open(file_path, newline='', encoding="utf-8")
     csv_reader = csv.reader(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)

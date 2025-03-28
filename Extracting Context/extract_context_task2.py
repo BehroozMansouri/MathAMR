@@ -105,12 +105,13 @@ def get_context_of_formula_sentence(doc, input_formula):
     return ""
 
 
-def get_related_text(qrel_arqmath_1, qrel_arqmath_2, latex_tsv_directory, post_file_path):
+def get_related_text(qrel_arqmath_1, qrel_arqmath_2, qrel_arqmath_3, latex_tsv_directory, post_file_path):
     result = {}
     lst_formulas = []
     # Reading the qrel files for arqmath 1 and 2
     lst_formulas.extend(read_formula_qrel(qrel_arqmath_1))
     lst_formulas.extend(read_formula_qrel(qrel_arqmath_2))
+    lst_formulas.extend(read_formula_qrel(qrel_arqmath_3))
     print("read qrels")
 
     # Reading TSV files
@@ -146,8 +147,8 @@ def get_related_text(qrel_arqmath_1, qrel_arqmath_2, latex_tsv_directory, post_f
     return result
 
 
-def main(post_path, latex_dir, qrel_1, qrel_2, result_path):
-    formula_id_contex_dic = get_related_text(qrel_1, qrel_2, latex_dir, post_path)
+def main(post_path, latex_dir, qrel_1, qrel_2, qrel_3, result_path):
+    formula_id_contex_dic = get_related_text(qrel_1, qrel_2, qrel_3, latex_dir, post_path)
     with open(result_path, "w", newline='', encoding="utf-8") as result_file:
         csv_writer = csv.writer(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
         for formula_id in formula_id_contex_dic:
@@ -164,6 +165,8 @@ if __name__ == '__main__':
     parser.add_argument('--qrel_1', type=str, required=True,
                         help='Path to the ARQMath1 Qrel file.')
     parser.add_argument('--qrel_2', type=str, required=True,
+                        help='Path to the ARQMath2 Qrel file.')
+    parser.add_argument('--qrel_3', type=str, required=True,
                         help='Path to the ARQMath2 Qrel file.')
     parser.add_argument('--result_path', type=str, required=True,
                         help='Path to save the results.')

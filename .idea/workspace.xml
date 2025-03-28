@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Extracting Context/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/utility/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Generating MathAMR/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Extracting Context/Post.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/Post.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Extracting Context/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Extracting Context/extract_context_task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/extract_context_task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Extracting Context/extract_context_topics_task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/extract_context_topics_task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Extracting Context/post_parser_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/post_parser_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Extracting Context/topic_file_reader_task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/topic_file_reader_task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/GenerateAMR/generate_mathamr_candidates.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/GenerateAMR/generate_mathamr_candidates.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/GenerateAMR/generate_mathamr_topics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/GenerateAMR/generate_mathamr_topics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/Tuple_Extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/Tuple_Extraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/GenerateAMR/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/latex_mml.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/latex_mml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/layout_symbol.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/layout_symbol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/math_document.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/math_document.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/math_extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/math_extractor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/math_symbol.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/math_symbol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/mathml.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/mathml.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/mws.sty.ltxml" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/mws.sty.ltxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/semantic_symbol.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/semantic_symbol.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/math_tan/symbol_tree.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/symbol_tree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/utility/Tuple_Extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/utility/Tuple_Extraction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/utility/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/math_tan/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Generating MathAMR/TangentS/utility/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/Generating MathAMR/TangentS/utility/index.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathTask2/Linearize AMR/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Linearize AMR/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2ux4AcUatwn8scNqdrSjyN2r5S9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="" />
+      <created>1743176748558</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1743176748558</updated>
+    </task>
+    <servers />
+  </component>
+</project>
