@@ -12,6 +12,17 @@ and find that MathAMR produces more effective rankings. We then apply our MathAM
 the ARQMath-2 formula retrieval task, where in most cases effectiveness measures are improved. The strongest
 reranked run matches the best P´@10 for an original run, and exceeds the original runs in nDCG´@10. 
 
+```buildoutcfg
+git clone https://github.com/BehroozMansouri/MathAMR.git
+cd MathAMR
+sh bin/install
+```
+
+```buildoutcfg
+cd ExtractingContext
+
+```
+
 ## Installation
 ```
 git clone https://github.com//ablodge/amr-utils

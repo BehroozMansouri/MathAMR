@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Extracting Context/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Extracting Context/extract_context_task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/extract_context_task2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Extracting Context/extract_context_topics_task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/extract_context_topics_task2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Extracting Context/shared_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/Extracting Context/shared_methods.py" afterDir="false" />
-    </list>
+    <list default="true" id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
