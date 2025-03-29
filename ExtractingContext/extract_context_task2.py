@@ -83,10 +83,10 @@ def get_related_text(qrel_arqmath_1, qrel_arqmath_2, qrel_arqmath_3, latex_tsv_d
         math_text = get_math(text)
         text_sentences = nlp(math_text)
         # getting context of the formulas
-        context_formula = get_context_of_formula_sentence(text_sentences, 'eqx' + str(formula_id) + 'eqx')
-        if context_formula == "":
+        formula_context = get_context_of_formula_sentence(text_sentences, 'eqx' + str(formula_id) + 'eqx')
+        if formula_context == "":
             continue
-        result[formula_id] = context_formula
+        result[formula_id] = formula_context
     return result
 
 

@@ -1,12 +1,14 @@
 ## Getting Data
 To run the experiments, you need to download the following files from ARQMath Google Drive.
-For ease of use, the smaller files including Topics (.xml files), OPTs (.tsv files), and QREL (.tsv files) are included in the ARQMathFiles Directory.
+For ease of use, the smaller files including Topics (.xml files), OPTs (.tsv files), and QREL based on formula ID (.tsv files) are included in the ARQMathFiles Directory.
 #### Collection Files
 - Posts.V1.3.xml: This contains question and answer posts. [Link](https://drive.google.com/drive/u/0/folders/1YekTVvfmYKZ8I5uiUMbs21G2mKwF9IAm)
 - latex_representation_v3: This contains LaTeX representations of math formulas in the Posts. [Link](https://drive.google.com/drive/u/0/folders/18bHlAWkhIJkLeS9CHvBQQ-BLSn4rrlvE)
-- qrel_task2_2020_visual_id.tsv: This contains QREL file with visual Ids for ARQMath-1, Task 2. [Link](https://drive.google.com/drive/u/0/folders/1BKk_Q7wKtoezRlfIb1OcoWCiUYuVuwsx)
-- qrel_task2_2021_all.tsv: This contains QREL file with visual Ids for ARQMath-2, Task 2. [Link](https://drive.google.com/drive/u/0/folders/1oHgwJQk-5FFcxcH6_lhfFq6tD18X7zH-)
-- qrel_task2_2022_official.tsv: This contains QREL file with visual Ids for ARQMath-3, Task 2. [Link](https://drive.google.com/drive/u/0/folders/1AWUO6wsa3Pe7gQ3HMJj31O5KrqWUstUF)
+- qrel_task2_all.tsv: This contains QREL file with formula Ids for ARQMath-1, Task 2. [Link](https://drive.google.com/drive/u/0/folders/1BWDWl6m6uX-CjdboF4ngvlE2xSvCiPwD)
+- qrel_task2_2021_formula_id_all.tsv: This contains QREL file with formula Ids for ARQMath-2, Task 2. [Link](https://drive.google.com/drive/u/0/folders/1iucnTr9ZaI0tXyqfzC_8NB8DfE8Y0emm)
+- qrel_task2_2022_formula_id_official.tsv: This contains QREL file with formula Ids for ARQMath-3, Task 2. [Link](https://drive.google.com/drive/u/0/folders/1T-7cR8rwjfcKdxUsaO_JVL8Ul4zOR-LS)
+
+Note that the extraction is done with QREL files with formula Ids not visual Ids.
 #### Topic Files
 In addition to candidate formulas in the collection, we need to extract sentences from topic formulas.
 - Topics_V1.1.xml: ARQMath-1 Task 2 Topic file. [Link](https://drive.google.com/drive/u/0/folders/1DFvfNObb1T8AnOYkCvp0o6XmfX-9J60B)

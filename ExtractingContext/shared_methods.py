@@ -5,7 +5,7 @@ def get_context_of_formula_sentence(doc, input_formula):
     """
     This method detect the sentence before and after the sentence in which formula has appeared
     @param doc: list of sentences
-    @param input_formula: input formula
+    @param input_formula: input formula id as eqxIDeqx
     @return: context of formula as a sentence in which formula has appeared along with the sentences before and after it
     """
     lst = []
@@ -17,11 +17,11 @@ def get_context_of_formula_sentence(doc, input_formula):
         if input_formula in lst[i]:
             if i > 0:
                 pre_index = i-1
-                pre_text = lst[pre_index]
+                pre_text = lst[pre_index].strip()
             if i+1 < len(lst):
                 post_index = i + 1
-                post_text = lst[post_index]
-            return (pre_text + " " + sentence.text + " "+ post_text).strip()
+                post_text = lst[post_index].strip()
+            return (pre_text + " " + lst[i].strip() + " "+ post_text).strip()
     return ""
 
 
