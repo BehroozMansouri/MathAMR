@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/MathAMR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MathAMR.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtractingContext/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/ExtractingContext/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtractingContext/extract_context_task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/ExtractingContext/extract_context_task2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ExtractingContext/shared_methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/ExtractingContext/shared_methods.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneratingMathAMR/GenerateAMR/generate_mathamr_topics.py" beforeDir="false" afterPath="$PROJECT_DIR$/GeneratingMathAMR/GenerateAMR/generate_mathamr_topics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneratingMathAMR/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/GeneratingMathAMR/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +117,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="2472" y="174" width="816" height="732" key="#Intentions" timestamp="1743273981496">
+      <screen x="1920" y="0" width="1920" height="1032" />
+    </state>
+    <state x="2472" y="174" width="816" height="732" key="#Intentions/0.0.1536.816/1920.0.1920.1032@1920.0.1920.1032" timestamp="1743273981496" />
     <state x="499" y="155" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1743192940784">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

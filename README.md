@@ -25,7 +25,9 @@ You can alternatively run the followings:
 git clone https://github.com//ablodge/amr-utils
 pip install penman
 pip install ./amr-utils
+cd GeneratingMathAMR
 git clone https://github.com/bjascob/amrlib
+cd ..
 python -m pip install -U pydantic spacy==3.4.4
 ```
 

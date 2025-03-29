@@ -1,37 +1,23 @@
-import argparse
-import sys
 from tqdm import tqdm
 from TangentS.Tuple_Extraction import mathml_to_amr
 from amrlib import load_stog_model
-import re
 
-# as per recommendation from @freylis, compile once only
-CLEANR = re.compile('<.*?>')
+import argparse
+import sys
+import re
 import csv
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 csv.field_size_limit(sys.maxsize)
 
 
-
-def read_opt_tsv(opt_directory, list_formulas):
-    dic_opt = {}
-    for file in os.listdir(opt_directory):
-        with open(opt_directory + "/" + file, newline='', encoding="utf-8") as result_file:
-            csv_reader = csv.reader(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
-            next(csv_reader)
-            for row in csv_reader:
-                formula_id = int(row[0])
-                if formula_id not in list_formulas:
-                    continue
-                    math_ml = row[8]
-                    dic_opt[formula_id] = math_ml
-    return dic_opt
-
-
 def read_query_context(file_path):
+    """
+    This method reads the context extracted from previous step
+    :param file_path: file path to extracted context
+    :return: dictionary of topic id and context
+    """
     dic_result = {}
     with open(file_path, encoding="utf-8", newline='') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter='\t', quotechar='"')
@@ -96,37 +82,39 @@ def get_amr_represenation(dic_formula_id_string, dic_opts, amr_model_path):
     return result_dic
 
 
-def get_list_formulas(dic_formula_id_string):
-    lst_formulas = []
-    for item in dic_formula_id_string.values():
-        temp = re.findall('\"eqx[0-9]+eqx\"', item)
-        lst_formulas.extend(temp)
-    return lst_formulas
+def read_tsv_opt(lst_file_path):
+    """
+    This method takes a list of topic opt file path and read them to a dictionary
+    :param lst_file_path: list of OPT .tsv file paths
+    :return: Dict of topic id as the key, with value as another dictionary of formula id (of formulas in the topic) and their opt representations
+    """
+    topic_opt_dic = {}
+    for file_path in lst_file_path:
+        result_file = open(file_path, newline='', encoding="utf-8")
+        csv_reader = csv.reader(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
+        next(csv_reader)
+        for row in csv_reader:
+            formula_id = row[0].split("_")[1]
+            topic_id = row[1].replace("A", "B")
+            opt = row[4]
+            if topic_id in topic_opt_dic:
+                topic_opt_dic[topic_id][formula_id] = opt
+            else:
+                topic_opt_dic[topic_id] = {formula_id: opt}
+    return topic_opt_dic
 
 
-def read_tsv_opt(file_path, topic_result):
-    result_file = open(file_path, newline='', encoding="utf-8")
-    csv_reader = csv.reader(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
-    next(csv_reader)
-    for row in csv_reader:
-        formula_id = row[0].split("_")[1]
-        topic_id = row[1]
-        topic_id = topic_id.replace("A", "B")
-        opt = row[4]
-        if topic_id in topic_result:
-            topic_result[topic_id][formula_id] = opt
-        else:
-            topic_result[topic_id] = {formula_id: opt}
-    return topic_result
-
-
-def main(amr_model_path, context_path, opt_arqmath, result_path):
+def main(amr_model_path, context_path, result_path):
     dic_formula_id_string = read_query_context(context_path)
-    dic_opts = {}
-    read_tsv_opt(opt_arqmath, dic_opts)
+    topic_opt_paths = ["../ARQMathFiles/Formula_topics_opt_V2.0.tsv",
+                       "../ARQMathFiles/Topics_2021_Formulas_OPT_V1.1.tsv",
+                       "../ARQMathFiles/Topics_Formulas_OPT.V0.1.tsv"]
+    dic_opts = read_tsv_opt(topic_opt_paths)
 
-    print("read data")
+    # Generating MathAMRs for topics
     dic_amr = get_amr_represenation(dic_formula_id_string, dic_opts, amr_model_path)
+
+    # Writing MathAMRs to file
     with open(result_path, "w", newline='', encoding="utf-8") as result_file:
         csv_writer = csv.writer(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
         for formula_id in dic_amr:
