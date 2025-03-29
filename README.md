@@ -12,21 +12,29 @@ and find that MathAMR produces more effective rankings. We then apply our MathAM
 the ARQMath-2 formula retrieval task, where in most cases effectiveness measures are improved. The strongest
 reranked run matches the best P´@10 for an original run, and exceeds the original runs in nDCG´@10. 
 
-```buildoutcfg
+## Installation
+Run the following to clone MathAMR repo and install required libraries:
+```bash
 git clone https://github.com/BehroozMansouri/MathAMR.git
 cd MathAMR
 sh bin/install
 ```
 
-```buildoutcfg
-cd ExtractingContext
-
-```
-
-## Installation
+You can alternatively run the followings:
 ```
 git clone https://github.com//ablodge/amr-utils
 pip install penman
 pip install ./amr-utils
 git clone https://github.com/bjascob/amrlib
+python -m pip install -U pydantic spacy==3.4.4
 ```
+
+## Extracting Context
+The following command will extract the context of candidate fomrulas and formula queries.
+```bash
+cd ExtractingContext
+python extract_context_task2.py --post_path "/Posts.V1.3.xml" --latex_dir "./latex_representation_v3/" --result_path formulas_context.tsv.
+python extract_context_topics_task2.py --result_file "result.tsv"
+cd ..
+```
+

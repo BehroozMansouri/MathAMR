@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="" />
+    <list default="true" id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/MathAMR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MathAMR.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/install" beforeDir="false" afterPath="$PROJECT_DIR$/bin/install" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +24,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2ux4AcUatwn8scNqdrSjyN2r5S9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -118,22 +125,22 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state width="1458" height="466" key="DebuggerActiveHint/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743192748228" />
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1743192914230">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1743194844078">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743192914230" />
-    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1743192914230">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743194844078" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1743194844078">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743192914230" />
-    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1743192914230">
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743194844078" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1743194844078">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743192914230" />
-    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1743192914230">
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743194844078" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1743194844078">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743192914230" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.816/1920.0.1920.1032@0.0.1536.816" timestamp="1743194844078" />
     <state width="1515" height="258" key="GridCell.Tab.1.bottom" timestamp="1743192905529">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
@@ -155,12 +162,12 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Extracting Context/extract_context_topics_task2.py</url>
+          <url>file://$PROJECT_DIR$/ExtractingContext/extract_context_topics_task2.py</url>
           <line>85</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Extracting Context/shared_methods.py</url>
+          <url>file://$PROJECT_DIR$/ExtractingContext/shared_methods.py</url>
           <line>40</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>

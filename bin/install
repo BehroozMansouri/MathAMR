@@ -18,4 +18,5 @@ then
 	mymsg "amr-utils repository already downloaded."
 else
   git clone https://github.com/ablodge/amr-utils.git
+  python -m pip install -U pydantic spacy==3.4.4
 fi
