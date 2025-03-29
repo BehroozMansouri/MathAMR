@@ -91,9 +91,9 @@ def get_related_text(qrel_arqmath_1, qrel_arqmath_2, qrel_arqmath_3, latex_tsv_d
 
 
 def main(post_path, latex_dir, result_path):
-    qrel_1 = "../ARQMathFiles/qrel_task2_2020_visual_id.tsv"
-    qrel_2 = "../ARQMathFiles/qrel_task2_2021_all.tsv"
-    qrel_3 = "../ARQMathFiles/qrel_task2_2022_official.tsv"
+    qrel_1 = "../ARQMathFiles/qrel_task2_all.tsv"
+    qrel_2 = "../ARQMathFiles/qrel_task2_2021_formula_id_all.tsv"
+    qrel_3 = "../ARQMathFiles/qrel_task2_2022_formula_id_official.tsv"
     formula_id_contex_dic = get_related_text(qrel_1, qrel_2, qrel_3, latex_dir, post_path)
     with open(result_path, "w", newline='', encoding="utf-8") as result_file:
         csv_writer = csv.writer(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)

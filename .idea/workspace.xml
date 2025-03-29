@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="000a172b-73d8-4642-afe1-e9770622a8dd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/MathAMR.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MathAMR.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/install" beforeDir="false" afterPath="$PROJECT_DIR$/bin/install" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathFiles/qrel_task2_2020_visual_id.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathFiles/qrel_task2_2021_all.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQMathFiles/qrel_task2_2022_official.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtractingContext/extract_context_task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/ExtractingContext/extract_context_task2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
