@@ -109,9 +109,6 @@ if __name__ == '__main__':
     parser.add_argument('--latex_dir', type=str, required=True,
                         help='Directory for LaTeX representation.')
 
-    parser.add_argument('--result_path', type=str, required=True,
-                        help='Path to save the results.')
-
     args = parser.parse_args()
-
-    main(args.post_path, args.latex_dir, args.result_path)
+    context_path = "../results/context_candidates.tsv"
+    main(args.post_path, args.latex_dir, context_path)

@@ -1,13 +1,17 @@
+import os
+
 from topic_file_reader_task2 import TopicReader
-from bs4 import BeautifulSoup
 from shared_methods import *
-import argparse
 import sys
 import csv
 import spacy
 import re
 
-CLEANR = re.compile('<.*?>')
+# Get the parent directory
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+# Add the parent directory to sys.path
+sys.path.insert(0, parent_dir)
+
 nlp = spacy.load('en_core_web_sm')
 csv.field_size_limit(sys.maxsize)
 
@@ -103,10 +107,5 @@ def main(result_file):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Detect query formulas context.")
-    parser.add_argument('--result_file', type=str, required=True,
-                        help='File where results will be saved.')
-
-    args = parser.parse_args()
-
-    main(args.result_file)
+    context_path = "../results/context_topic.tsv"
+    main(context_path)
