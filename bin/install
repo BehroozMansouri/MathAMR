@@ -11,12 +11,13 @@ else
   cd amrlib
   pip install -r requitement.txt
   pip install beautifulsoup4
-  pip3 install lxml
+  pip install lxml
+  pip install penman
 fi
 
 echo ""
 echo "[ Downloading amr-utils ]"
-if [ -d ./amr-utils ]
+if [ -d ./amr_utilssss ]
 then
 	mymsg "amr-utils repository already downloaded."
 else

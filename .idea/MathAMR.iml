@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/ExtractingContext" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/GeneratingMathAMR" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LinearizingMathAMR" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
