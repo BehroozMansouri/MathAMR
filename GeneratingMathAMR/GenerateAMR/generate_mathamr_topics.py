@@ -1,15 +1,18 @@
-from tqdm import tqdm
-from TangentS.Tuple_Extraction import mathml_to_amr
-from amrlib import load_stog_model
-
-import argparse
 import sys
+import os
+import argparse
 import re
 import csv
-import os
 
+# Get the parent directory
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+# Add the parent directory to sys.path
+sys.path.insert(0, parent_dir)
 
-csv.field_size_limit(sys.maxsize)
+from tqdm import tqdm
+from amrlib.amrlib.models.parse_xfm.inference import Inference
+from TangentS.Tuple_Extraction import mathml_to_amr
+
 
 
 def read_query_context(file_path):
@@ -48,9 +51,10 @@ def replace_math_new(dic_ids, graph_query, lst_formula, opt_dic_query):
     return dic_ids, graph_query
 
 
-def get_amr_represenation(dic_formula_id_string, dic_opts, amr_model_path):
+def get_amr_represenation(model_path, dic_formula_id_string, dic_opts):
     result_dic = {}
-    stog = load_stog_model(amr_model_path)
+    print(model_path)
+    stog = Inference(model_path)
     for topic_id in tqdm(dic_formula_id_string):
         dic_formulas = dic_opts[topic_id]
         dic_ids = {}
@@ -104,15 +108,16 @@ def read_tsv_opt(lst_file_path):
     return topic_opt_dic
 
 
-def main(amr_model_path, context_path, result_path):
+def main(model_path, context_path, result_path):
+
     dic_formula_id_string = read_query_context(context_path)
-    topic_opt_paths = ["../ARQMathFiles/Formula_topics_opt_V2.0.tsv",
-                       "../ARQMathFiles/Topics_2021_Formulas_OPT_V1.1.tsv",
-                       "../ARQMathFiles/Topics_Formulas_OPT.V0.1.tsv"]
+    topic_opt_paths = ["../../ARQMathFiles/Formula_topics_opt_V2.0.tsv",
+                       "../../ARQMathFiles/Topics_2021_Formulas_OPT_V1.1.tsv",
+                       "../../ARQMathFiles/Topics_Formulas_OPT.V0.1.tsv"]
     dic_opts = read_tsv_opt(topic_opt_paths)
 
     # Generating MathAMRs for topics
-    dic_amr = get_amr_represenation(dic_formula_id_string, dic_opts, amr_model_path)
+    dic_amr = get_amr_represenation(model_path, dic_formula_id_string, dic_opts)
 
     # Writing MathAMRs to file
     with open(result_path, "w", newline='', encoding="utf-8") as result_file:
@@ -122,17 +127,8 @@ def main(amr_model_path, context_path, result_path):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Generate AMR topics for Math.")
+    model_path = "../amrlib/amrlib/data/model_parse_xfm_bart_large-v0_1_0"
+    context_path = "../../results/context_topic.tsv"
+    result_path = "../../results/mathamr_topics.tsv"
 
-    parser.add_argument('--amr_model_path', type=str, required=True,
-                        help='Path to the AMR model directory.')
-    parser.add_argument('--context_path', type=str, required=True,
-                        help='Path to the formula context input TSV file.')
-    parser.add_argument('--opt_arqmath', type=str, required=True,
-                        help='Path to the optimized ARQMath TSV file.')
-    parser.add_argument('--result_path', type=str, required=True,
-                        help='Path to save the result TSV file.')
-
-    args = parser.parse_args()
-
-    main(args.amr_model_path, args.amr_path, args.opt_arqmath, args.result_path)
+    main(model_path, context_path, result_path)

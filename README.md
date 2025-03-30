@@ -27,6 +27,8 @@ pip install penman
 pip install ./amr-utils
 cd GeneratingMathAMR
 git clone https://github.com/bjascob/amrlib
+cd amrlib
+pip install -r requirements.txt
 cd ..
 python -m pip install -U pydantic spacy==3.4.4
 ```

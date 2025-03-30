@@ -29,8 +29,6 @@ python extract_context_task2.py \
 
 After running the command above, the extracted context for candidates is saved at `results/context_topic.tsv`.
 
-This will generate the annotated formulas context in ARQMath-1, -2 and -3, saving the candidate formulas context as formulas_context.tsv file. 
-
 Next we run a similar code for extracting context of formula queries. For this, run the command like:
 ```bash
 python extract_context_topics_task2.py 

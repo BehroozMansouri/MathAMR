@@ -1,23 +1,24 @@
 import argparse
-
-from tqdm import tqdm
-from TangentS.Tuple_Extraction import mathml_to_amr
-from amrlib import load_stog_model
 import re
-
-CLEANR = re.compile('<.*?>')
 import sys
 import csv
 import os
+# Get the parent directory
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+# Add the parent directory to sys.path
+sys.path.insert(0, parent_dir)
+
+from tqdm import tqdm
+from amrlib.amrlib.models.parse_xfm.inference import Inference
+from TangentS.Tuple_Extraction import mathml_to_amr
 
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 csv.field_size_limit(sys.maxsize)
 
 
 def read_opt_tsv(opt_directory, dic_formula_id_string):
     dic_opt = {}
-    print("reading OPT files")
     for file in tqdm(os.listdir(opt_directory)):
         with open(opt_directory + "/" + file, newline='', encoding="utf-8") as result_file:
             csv_reader = csv.reader(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
@@ -65,7 +66,7 @@ def replace_math_new(dic_ids, graph_query, lst_formula, opt_dic_query):
 def get_amr_represenation(amr_model_path, dic_formula_id_string, dic_opts):
     result_dic = {}
     # loading AMR model
-    stog = load_stog_model(amr_model_path)
+    stog = Inference(amr_model_path)
     # Iterating on the formulas context to generate AMRs
     for formula_id in tqdm(dic_formula_id_string):
         target = dic_formula_id_string[formula_id]
@@ -100,29 +101,11 @@ def get_amr_represenation(amr_model_path, dic_formula_id_string, dic_opts):
     return result_dic
 
 
-def get_list_formulas(dic_formula_id_string):
-    lst_formulas = []
-    for item in dic_formula_id_string.values():
-        temp = re.findall('\"eqx[0-9]+eqx\"', item)
-        lst_formulas.extend(temp)
-    return lst_formulas
-
-
-def read_cfted_result(file_path):
-    lst_formula_ids = []
-    with open(file_path, encoding="utf-8", newline='') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter='\t', quotechar='"')
-        for row in csv_reader:
-            formula_id = int(row[1])
-            lst_formula_ids.append(formula_id)
-    return lst_formula_ids
-
-
 def main(amr_model_path, context_path, opt_dir, result_path):
     dic_formula_id_string = read_amr_text(context_path)
-    print("read formula context file")
+    print("Reading OPT Files")
     dic_opts = read_opt_tsv(opt_dir, dic_formula_id_string)
-    print("read OPT files")
+
     dic_amr = get_amr_represenation(amr_model_path, dic_formula_id_string, dic_opts)
     with open(result_path, "w", newline='', encoding="utf-8") as result_file:
         csv_writer = csv.writer(result_file, delimiter='\t', quoting=csv.QUOTE_MINIMAL)
@@ -133,15 +116,12 @@ def main(amr_model_path, context_path, opt_dir, result_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Generate Math AMR candidates.")
 
-    parser.add_argument('--amr_model_path', type=str, required=True,
-                        help='Path to the AMR model directory.')
-    parser.add_argument('--context_path', type=str, required=True,
-                        help='Path to the formula context input TSV file.')
     parser.add_argument('--opt_dir', type=str, required=True,
                         help='Directory for the optimized representations.')
-    parser.add_argument('--result_path', type=str, required=True,
-                        help='Path to save the result TSV file.')
 
     args = parser.parse_args()
+    model_path = "../amrlib/amrlib/data/model_parse_xfm_bart_large-v0_1_0"
+    context_path = "../../results/context_candidates.tsv"
+    result_path = "../../results/mathamr_candidates.tsv"
 
-    main(args.amr_model_path, args.amr_path, args.opt_dir, args.result_path)
+    main(model_path, context_path, args.opt_dir, result_path)
