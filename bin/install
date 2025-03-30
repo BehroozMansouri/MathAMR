@@ -1,7 +1,6 @@
 #!/bin/bash
 ################################################################
 # install     - Bash script
-# Tangent-S installation
 echo ""
 echo "[ Downloading amrlib ]"
 if [ -d ./amrlib ]
@@ -9,6 +8,10 @@ then
 	mymsg "amr-lib repository already downloaded."
 else
   git clone https://github.com/bjascob/amrlib.git
+  cd amrlib
+  pip install -r requitement.txt
+  pip install beautifulsoup4
+  pip3 install lxml
 fi
 
 echo ""
@@ -17,6 +20,9 @@ if [ -d ./amr-utils ]
 then
 	mymsg "amr-utils repository already downloaded."
 else
+  cd LinearizingMathAMR
   git clone https://github.com/ablodge/amr-utils.git
+  cd ..
   python -m pip install -U pydantic spacy==3.4.4
+  python -m spacy download en
 fi

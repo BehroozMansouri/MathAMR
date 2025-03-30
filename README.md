@@ -38,11 +38,10 @@ The following command will extract the context of candidate formulas and formula
 Note that the formulas are replaced with place-holder as eqxIDeqx, where ID is the formula Id.
 ```bash
 cd ExtractingContext
-python extract_context_task2.py --post_path "/Posts.V1.3.xml" --latex_dir "./latex_representation_v3/" --result_path formulas_context.tsv
-python extract_context_topics_task2.py --result_file "result.tsv"
+python extract_context_task2.py --post_path "/Posts.V1.3.xml" --latex_dir "./latex_representation_v3/"
+python extract_context_topics_task2.py "
 cd ..
 ```
 
 ## Generating MathAMR
 After extracting context for formulas, they are passed to AMR parser to generate AMR. Then formulas are integrated to AMR, using their OPT representation.
- 
