@@ -19,7 +19,7 @@ python generate_mathamr_topics.py
 
 This reads the context of topics, and generate MathAMR. The results will be saved in `results/mathamr_topics.tsv`.
 
-Then, run the following command to generate MathAMRs for candidates (Note that this needs more time in scale of hours):
+Then, run the following command to generate MathAMRs for candidates (Note that this needs more time in scale of several hours to a day):
 ```bash
 python generate_mathamr_candidates.py --opt_dir ./opt_representation_V3
 ```
